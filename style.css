@@ -1,30 +1,268 @@
+/* Font dan Layout Umum */
 body {
-    font-family: 'Arial', sans-serif;
-    padding-top: 56px; /* Height of fixed navbar */
+    font-family: 'Poppins', sans-serif;
+    padding-top: 56px; /* Tinggi navbar tetap */
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
 }
 
+/* Hero Section */
 .hero {
-    background-color: #f8f9fa;
+    background: linear-gradient(135deg, #6c63ff, #96fbc4);
+    color: white;
     min-height: calc(100vh - 56px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.skill-item {
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.25rem;
     margin-bottom: 20px;
 }
 
+.hero a {
+    background-color: #fff;
+    color: #6c63ff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero a:hover {
+    background-color: #6c63ff;
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #6c63ff !important;
+}
+
+.navbar-nav .nav-link {
+    color: #333 !important;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #6c63ff !important;
+}
+
+/* About Section */
+#about {
+    background-color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#about h2 {
+    color: #6c63ff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Skills Section */
+#skills {
+    background: linear-gradient(135deg, #96fbc4, #6c63ff);
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#skills h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.skill-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.skill-item span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.progress {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+
 .progress-bar {
-    background-color: #007bff;
+    background: linear-gradient(90deg, #6c63ff, #96fbc4);
+    height: 100%;
+    width: 0%; /* Animasi dimulai dari 0% */
+    border-radius: 20px;
+    animation: fill-bar 2s ease-out forwards;
+}
+
+.progress-bar span {
+    position: absolute;
+    right: 10px;
+    top: -25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Animasi untuk progress bar */
+@keyframes fill-bar {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--progress-width);
+    }
+}
+
+
+/* Projects Section */
+#projects {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+#projects h2 {
+    color: #6c63ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .project-card {
-    height: 100%;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    max-height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
 }
 
 .project-card .card-body {
-    display: flex;
-    flex-direction: column;
+    padding: 15px;
 }
 
 .project-card .btn-group {
     margin-top: auto;
+}
+
+.project-card .btn {
+    background-color: #6c63ff;
+    color: #fff;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.project-card .btn:hover {
+    background-color: #96fbc4;
+    color: #333;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#contact h2 {
+    color: #6c63ff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#contact .form-label {
+    color: #555;
+}
+
+#contact .btn {
+    background-color: #6c63ff;
+    color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+}
+
+#contact .btn:hover {
+    background-color: #96fbc4;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #bbb;
+    line-height: 1.4;
 }
