@@ -1,0 +1,30 @@
+body {
+    font-family: 'Arial', sans-serif;
+    padding-top: 56px; /* Height of fixed navbar */
+}
+
+.hero {
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 56px);
+}
+
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    background-color: #007bff;
+}
+
+.project-card {
+    height: 100%;
+}
+
+.project-card .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card .btn-group {
+    margin-top: auto;
+}
