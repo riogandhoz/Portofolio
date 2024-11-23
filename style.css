@@ -1,16 +1,37 @@
-/* Font dan Layout Umum */
+/* Background Animation */
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Apply the animation to the body or a specific section */
 body {
+    background: linear-gradient(45deg, #6c63ff, #96fbc4, #ff6f61);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
     font-family: 'Poppins', sans-serif;
-    padding-top: 56px; /* Tinggi navbar tetap */
-    background-color: #f4f4f4;
-    color: #333;
+    padding-top: 56px; /* Navbar height */
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
     margin: 0;
 }
 
+/* Optional: Smooth scroll effect for a more seamless experience */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #6c63ff, #96fbc4);
+    background: linear-gradient(135deg, var(--btn-bg), var(--btn-hover-bg));
     color: white;
     min-height: calc(100vh - 56px);
     display: flex;
@@ -32,7 +53,7 @@ body {
 
 .hero a {
     background-color: #fff;
-    color: #6c63ff;
+    color: var(--btn-bg);
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 50px;
@@ -42,56 +63,60 @@ body {
 }
 
 .hero a:hover {
-    background-color: #6c63ff;
-    color: #fff;
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text-color);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Navbar */
 .navbar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background: #fff;
+    background: var(--navbar-bg);
+}
+
+.nav-item {
+    color: #000;
 }
 
 .navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
-    color: #6c63ff !important;
+    color: var(--btn-bg) !important;
 }
 
 .navbar-nav .nav-link {
-    color: #333 !important;
+    color: var(--navbar-text-color) !important;
     font-size: 1rem;
     transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #6c63ff !important;
+    color: var(--btn-bg) !important;
 }
 
 /* About Section */
 #about {
-    background-color: white;
+    background-color: var(--background-color);
     padding: 50px 0;
     text-align: center;
 }
 
 #about h2 {
-    color: #6c63ff;
+    color: var(--btn-bg);
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 #about p {
     font-size: 1.1rem;
-    color: #555;
+    color: var(--text-color);
     max-width: 800px;
     margin: 0 auto;
 }
 
 /* Skills Section */
 #skills {
-    background: linear-gradient(135deg, #96fbc4, #6c63ff);
+    background: linear-gradient(135deg, var(--btn-hover-bg), var(--btn-bg));
     color: white;
     padding: 50px 0;
     text-align: center;
@@ -120,7 +145,7 @@ body {
 
 .skill-item i {
     font-size: 2.5rem;
-    color: #fff;
+    color: var(--icon-color);
     margin-right: 15px;
     vertical-align: middle;
 }
@@ -139,7 +164,7 @@ body {
 }
 
 .progress-bar {
-    background: linear-gradient(90deg, #6c63ff, #96fbc4);
+    background: linear-gradient(90deg, var(--btn-bg), var(--btn-hover-bg));
     height: 100%;
     width: 0%; /* Animasi dimulai dari 0% */
     border-radius: 20px;
@@ -165,15 +190,14 @@ body {
     }
 }
 
-
 /* Projects Section */
 #projects {
     padding: 50px 0;
-    background-color: #fff;
+    background-color: var(--background-color);
 }
 
 #projects h2 {
-    color: #6c63ff;
+    color: var(--btn-bg);
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 40px;
@@ -212,15 +236,15 @@ body {
 }
 
 .project-card .btn {
-    background-color: #6c63ff;
-    color: #fff;
+    background-color: var(--btn-bg);
+    color: var(--btn-text-color);
     transition: all 0.3s ease;
     border: none;
 }
 
 .project-card .btn:hover {
-    background-color: #96fbc4;
-    color: #333;
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text-color);
 }
 
 /* Contact Section */
@@ -231,31 +255,31 @@ body {
 }
 
 #contact h2 {
-    color: #6c63ff;
+    color: var(--btn-bg);
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 #contact .form-label {
-    color: #555;
+    color: #000;
 }
 
 #contact .btn {
-    background-color: #6c63ff;
-    color: #fff;
+    background-color: var(--btn-bg);
+    color: var(--btn-text-color);
     transition: all 0.3s ease;
     border-radius: 30px;
 }
 
 #contact .btn:hover {
-    background-color: #96fbc4;
-    color: #333;
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text-color);
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
     padding: 20px 0;
     text-align: center;
 }
@@ -263,6 +287,109 @@ footer {
 footer p {
     margin: 0;
     font-size: 0.9rem;
-    color: #bbb;
+    color: var(--footer-text-color);
     line-height: 1.4;
+}
+
+/* Tema Default (Mode Terang) */
+:root {
+    --background-color: #fff;
+    --text-color: #333;
+    --navbar-bg: #fff;
+    --navbar-text-color: #333;
+    --btn-bg: #6c63ff;
+    --btn-text-color: #fff;
+    --btn-hover-bg: #96fbc4;
+    --btn-hover-text-color: #333;
+    --footer-bg: #333;
+    --footer-text-color: #fff;
+    --icon-color: #333; /* Warna ikon untuk mode terang */
+}
+
+/* Tema Gelap */
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --navbar-bg: #1f1f1f;
+    --navbar-text-color: #000000;
+    --btn-bg: #333;
+    --btn-text-color: #fff;
+    --btn-hover-bg: #6c63ff;
+    --btn-hover-text-color: #000;
+    --footer-bg: #000;
+    --footer-text-color: #fff;
+    --icon-color: #fff;
+}
+
+/* Mode Gelap */
+body.dark-mode {
+    background-color: #121212;
+    color: var(--text-color);
+}
+
+body.dark-mode .navbar-light {
+    background-color: #ffffff;
+}
+
+body.dark-mode .btn-outline-secondary {
+    color: #000000;
+    border-color: #fff;
+}
+
+body.dark-mode .hero {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .table-bordered {
+    background-color: #333;
+    color: #000000;
+}
+
+body.dark-mode .table th,
+body.dark-mode .table td {
+    color: #000000;
+}
+
+body.dark-mode .text-center2 {
+    color: #fff;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #6c63ff;
+    border-color: #6c63ff;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #96fbc4;
+    border-color: #96fbc4;
+}
+
+/* Change icon colors to black in light mode */
+.navbar-nav .nav-link i {
+    color: black;
+}
+
+/* Skills and Contact section changes for light mode */
+#skills {
+    background: linear-gradient(135deg, var(--btn-bg), var(--btn-hover-bg));
+}
+
+#contact {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Dark Mode - About Section */
+body.dark-mode #about h2,
+body.dark-mode #about p {
+    color: #000000;
+}
+
+/* Dark Mode - Projects Section */
+body.dark-mode #projects h2 {
+    color: #000000;
+}
+
+body.dark-mode #projects .project-card {
+    background-color: #333;
 }

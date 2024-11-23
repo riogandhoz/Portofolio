@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectList = document.getElementById('project-list');
     const addProjectForm = document.getElementById('add-project-form');
     const contactForm = document.getElementById('contact-form');
+    const themeToggle = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme');
 
     let projects = [
         { id: 1, title: 'Project 1', description: 'Description of Project 1' },
@@ -9,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 3, title: 'Project 3', description: 'Description of Project 3' },
     ];
 
+    // Set the initial theme based on localStorage
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        themeToggle.textContent = currentTheme === 'dark' ? 'Mode Terang' : 'Mode Gelap';
+    }
+
+    // Function to render the projects
     function renderProjects() {
         projectList.innerHTML = '';
         projects.forEach(project => {
@@ -38,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to add a new project
     function addProject(event) {
         event.preventDefault();
         const title = document.getElementById('project-title').value;
@@ -55,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         Swal.fire('Success', 'Project added successfully!', 'success');
     }
 
+    // Function to edit a project
     function editProject(event) {
         const projectId = parseInt(event.target.getAttribute('data-id'));
         const project = projects.find(p => p.id === projectId);
@@ -80,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to delete a project
     function deleteProject(event) {
         const projectId = parseInt(event.target.getAttribute('data-id'));
         Swal.fire({
@@ -99,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to handle the contact form submission
     function handleContact(event) {
         event.preventDefault();
         const name = document.getElementById('name').value;
@@ -112,10 +125,23 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.reset();
     }
 
+    // Event listener for the theme toggle button
+    themeToggle.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'dark') {
+            theme = 'light';
+        } else {
+            theme = 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        themeToggle.textContent = theme === 'dark' ? 'Mode Terang' : 'Mode Gelap';
+    });
+
     // Initial render of projects
     renderProjects();
 
-    // Event listeners
+    // Event listeners for the forms
     addProjectForm.addEventListener('submit', addProject);
     contactForm.addEventListener('submit', handleContact);
 
