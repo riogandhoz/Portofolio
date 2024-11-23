@@ -196,14 +196,6 @@ html {
     background-color: var(--background-color);
 }
 
-#projects h2 {
-    color: var(--btn-bg);
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
 .project-card {
     border: none;
     border-radius: 8px;
@@ -350,9 +342,25 @@ body.dark-mode .table td {
     color: #000000;
 }
 
-body.dark-mode .text-center2 {
-    color: #fff;
+.about-me-heading {
+    color: bisque; /* Warna isi teks */
+    -webkit-text-stroke: 10px black; /* Stroke hitam lebih tebal */
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Opsional: Tambahkan efek glow untuk visibilitas */
+    font-weight: bold; /* Mempertebal teks utama jika diperlukan */
 }
+
+/* Default Styles (Mode Terang) */
+#about h2,
+#projects h2 {
+    color: black;
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+body.dark-mode #about h2,
+body.dark-mode #projects h2 {
+    color: white !important;
+}
+
 
 body.dark-mode .btn-primary {
     background-color: #6c63ff;
@@ -379,17 +387,3 @@ body.dark-mode .btn-primary:hover {
     color: #333;
 }
 
-/* Dark Mode - About Section */
-body.dark-mode #about h2,
-body.dark-mode #about p {
-    color: #000000;
-}
-
-/* Dark Mode - Projects Section */
-body.dark-mode #projects h2 {
-    color: #000000;
-}
-
-body.dark-mode #projects .project-card {
-    background-color: #333;
-}
